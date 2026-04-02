@@ -1,40 +1,31 @@
-import React from 'react'
 import { useState } from 'react';
-import {TaskCard} from './TaskCard';
-import BoxCard from './BoxCard';
+import { TaskCard } from './TaskCard';
+import "./TaskList.css";
+import "./AddTasks.css";
 
-export default function TaskList() {
-      const [tasks, setTasks] = useState([
+export const TaskList = () => {
+    const [tasks, setTasks] = useState([
         {id: 5271, name: "Record React Lectures", completed: true}, 
         {id: 7825, name: "Edit React Lectures", completed: false}, 
         {id: 8391, name: "Watch Lectures", completed: false}
-      ]);
-      const [show, setShow] = useState(true);
-    
-      function handleDelete(id){
+    ]);
+    const [show, setShow] = useState(true);
+
+    function handleDelete(id){
         setTasks(tasks.filter(task => task.id !== id));
-      }
+    }
+
   return (
-   <> <h1>Task List</h1>
-      <ul>
-        <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
-        { show && tasks.map((task) => (
-          <TaskCard key={task.id} task={task} handleDelete={handleDelete}/>
-        )) }
-      </ul>
-          <BoxCard result="success">  
-          <p>Lorem ipsum dolor xvxsit amet.</p>   
-           <p>Lorem ipsum dolor vcxvsit amet.</p>      
-         </BoxCard>
-        <BoxCard result="warning">   
-         <p>Lorem ipsum dolor sit amet.</p>  
-          <p>Lorem ipsum dolor sit acxvzvmet.</p>         
-        </BoxCard>
-         <BoxCard result="alert">   
-          <p>Lorem ipsum dzczcolor sit amet.</p>  
-           <p>Lorem ipsum dolor sit amet.</p>         
-        </BoxCard>
-      </>
+    <section className='tasklist'>
+        <ul>
+            <div className='header'>
+                <h1>TaskList</h1>
+                <button className='trigger' onClick={() => setShow(!show)}>{ show ? "Hide Tasks" : "Show Tasks"}</button>
+            </div>
+            { show && tasks.map((task) => (
+                <TaskCard key={task.id} task={task} handleDelete={handleDelete} />
+            )) }
+        </ul>
+    </section>
   )
 }
-
