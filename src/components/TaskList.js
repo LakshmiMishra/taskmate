@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import {TaskCard} from './TaskCard';
+import BoxCard from './BoxCard';
 
 export default function TaskList() {
       const [tasks, setTasks] = useState([
@@ -20,7 +21,20 @@ export default function TaskList() {
         { show && tasks.map((task) => (
           <TaskCard key={task.id} task={task} handleDelete={handleDelete}/>
         )) }
-      </ul></>
+      </ul>
+          <BoxCard result="success">  
+          <p>Lorem ipsum dolor xvxsit amet.</p>   
+           <p>Lorem ipsum dolor vcxvsit amet.</p>      
+         </BoxCard>
+        <BoxCard result="warning">   
+         <p>Lorem ipsum dolor sit amet.</p>  
+          <p>Lorem ipsum dolor sit acxvzvmet.</p>         
+        </BoxCard>
+         <BoxCard result="alert">   
+          <p>Lorem ipsum dzczcolor sit amet.</p>  
+           <p>Lorem ipsum dolor sit amet.</p>         
+        </BoxCard>
+      </>
   )
 }
 
