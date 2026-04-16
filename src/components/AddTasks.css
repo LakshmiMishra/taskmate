@@ -30,7 +30,6 @@
 .addtask input:focus{
     outline: none;
 }
-
 .addtask select{
     font-size: 18px;
     padding: 7px;
